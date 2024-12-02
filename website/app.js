@@ -1,6 +1,6 @@
 // Global variables
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';  // OpenWeather API base URL
-const apiKey = 'c90de487d4a5915be354e8cd2c477a73';
+const apiKey = 'c90de487d4a5915be354e8cd2c477a73&units=imperial';  // Personal API Key with units directive
 const submitButton = document.getElementById('generate');  // The "Generate" button
 
 // Initialize the app by adding event listener for button click
@@ -48,7 +48,7 @@ const refreshUI = () => {
         .then((data) => {
             console.log("UI Data:", data); // Log data being used to update UI
             document.getElementById('date').innerHTML = `Date: ${data.date}`;
-            document.getElementById('temp').innerHTML = `Temperature: ${data.temperature}°K`;  // Kelvin is shown
+            document.getElementById('temp').innerHTML = `Temperature: ${data.temperature}°F`;  // Updated to Fahrenheit
             document.getElementById('content').innerHTML = `Feeling: ${data.userContent}`;
         })
         .catch((error) => {
