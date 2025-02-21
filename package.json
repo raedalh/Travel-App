@@ -8,6 +8,10 @@
     "build": "webpack --config webpack.config.js --mode production",
     "start": "node src/server/server.js"
   },
+  "engines": {
+    "node": "20.x",
+    "npm": "11.x"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.0",

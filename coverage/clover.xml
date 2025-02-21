@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1739359061267" clover="3.2.0">
-  <project timestamp="1739359061268" name="All files">
+<coverage generated="1740167005703" clover="3.2.0">
+  <project timestamp="1740167005703" name="All files">
     <metrics statements="135" coveredstatements="114" conditionals="53" coveredconditionals="35" methods="19" coveredmethods="17" elements="207" coveredelements="166" complexity="0" loc="135" ncloc="135" packages="1" files="4" classes="4"/>
     <file name="app.js" path="C:\Users\user\Desktop\Capstone\Travel App\src\client\js\app.js">
       <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
