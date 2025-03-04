@@ -3,19 +3,21 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import * as sass from 'sass';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 
 // Correctly define __dirname in an ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  mode: 'development', // Set to 'production' for production builds
+  mode: 'production', // Production mode
   entry: './src/client/js/app.js', // Entry point for your application
   output: {
     path: path.resolve(__dirname, 'dist'), // Output directory
-    filename: 'main.js', // Output JavaScript file
+    filename: 'main.[contenthash].js', // Output JavaScript file with cache busting
     clean: true, // Clean the output directory before each build
-    assetModuleFilename: 'media/[name][ext]', // Store images in /dist/media/
+    assetModuleFilename: 'media/[name].[hash][ext]', // Store images in /dist/media/
   },
   module: {
     rules: [
@@ -54,16 +56,14 @@ export default {
       filename: 'index.html', // Output HTML file name
     }),
     new MiniCssExtractPlugin({
-      filename: 'styles.css', // Output CSS file name
+      filename: 'styles.[contenthash].css', // Output CSS file name with cache busting
     }),
   ],
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, 'dist'), // Serve files from the dist directory
-    },
-    compress: true, // Enable gzip compression
-    port: 3000, // Port for the development server
-    hot: true, // Enable hot module replacement (HMR)
-    open: true, // Open the browser automatically
+  optimization: {
+    minimize: true, // Enable minimization
+    minimizer: [
+      new TerserPlugin(), // Minify JavaScript
+      new CssMinimizerPlugin(), // Minify CSS
+    ],
   },
 };
