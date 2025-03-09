@@ -175,8 +175,13 @@ Travel-App/
 ├── package.json # Project dependencies and scripts
 ├── README.md # Project documentation
 └── webpack.config.js # Webpack configuration
+
 Dependencies
+
 Runtime Dependencies
+
+node.js: v20.17.0
+
 cors: ^2.8.5
 
 dotenv: ^16.4.0
